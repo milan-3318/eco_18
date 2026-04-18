@@ -127,3 +127,9 @@ document.addEventListener('keydown', e => {
   if (document.getElementById('loginPanel').classList.contains('active')) handleLogin();
   else handleRegister();
 });
+
+// Auto-switch to register tab if ?tab=register is in URL
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('tab') === 'register') {
+  switchTab('register');
+}
