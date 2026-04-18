@@ -7,6 +7,7 @@ const rateLimit = require('express-rate-limit');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');
 const gameRoutes = require('./routes/game');
+const feedbackRoutes = require('./routes/feedback');
 
 const path = require('path');
 
@@ -63,6 +64,7 @@ app.use('/api', generalLimiter);
 // ── API Routes ────────────────────────────────────────────────
 app.use('/api/auth', authRoutes);
 app.use('/api/game', gameRoutes);
+app.use('/api/feedback', feedbackRoutes);
 
 // ── Health Check ──────────────────────────────────────────────
 app.get('/api/health', (req, res) => {

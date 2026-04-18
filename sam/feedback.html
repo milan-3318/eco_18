@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback - EcoWarriors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/feedback.css">
+</head>
+<body>
+<nav>
+  <div class="brand">♻️ EcoWarriors</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="game.html">Play</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="feedback.html" class="active">Feedback</a>
+  </div>
+  <div class="nav-actions">
+    <span id="nav-user-display">👋 <span id="nav-username"></span></span>
+    <a href="login.html" class="btn btn-yellow" id="nav-login-btn">Login</a>
+    <button class="btn btn-logout" id="nav-logout-btn" style="display:none" onclick="logout()">Logout</button>
+  </div>
+</nav>
+
+<div class="feedback-page">
+  <div class="feedback-container">
+    <div class="feedback-header">
+      <h1>💬 Give Us Your Feedback</h1>
+      <p>Help us make EcoWarriors better! Share your thoughts, bugs, or ideas.</p>
+    </div>
+
+    <form class="feedback-form" id="feedbackForm">
+      <div class="form-row">
+        <div class="input-group">
+          <label>Your Name</label>
+          <input type="text" id="fbName" placeholder="Enter your name" required>
+        </div>
+        <div class="input-group">
+          <label>Your Email</label>
+          <input type="email" id="fbEmail" placeholder="your@email.com" required>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Category</label>
+        <select id="fbCategory">
+          <option value="Gameplay">Gameplay 🎮</option>
+          <option value="Design">Design 🎨</option>
+          <option value="Bug">Report a Bug 🐛</option>
+          <option value="Suggestion" selected>Suggestion 💡</option>
+          <option value="Other">Other 📁</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Rating</label>
+        <div class="star-rating">
+          <input type="radio" name="rating" value="5" id="star5"><label for="star5">★</label>
+          <input type="radio" name="rating" value="4" id="star4"><label for="star4">★</label>
+          <input type="radio" name="rating" value="3" id="star3"><label for="star3">★</label>
+          <input type="radio" name="rating" value="2" id="star2"><label for="star2">★</label>
+          <input type="radio" name="rating" value="1" id="star1"><label for="star1">★</label>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Message</label>
+        <textarea id="fbMessage" rows="5" placeholder="Tell us more..." required minlength="5"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-green" id="submitBtn">Send Feedback 🌿</button>
+    </form>
+
+    <div class="recent-feedback">
+      <h3>🌟 Recent Community Feedback</h3>
+      <div id="feedbackList" class="feedback-list">
+        <!-- Feedback items will be loaded here -->
+        <p class="loading">Loading community feedback...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">♻️ EcoWarriors</div>
+  <p>&copy; 2024 EcoWarriors: Trash Toss Titans. All rights reserved.</p>
+</footer>
+
+<div id="toast"></div>
+
+<script src="js/feedback.js"></script>
+</body>
+</html>
