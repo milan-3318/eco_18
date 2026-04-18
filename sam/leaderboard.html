@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard - EcoWarriors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/leaderboard.css">
+</head>
+<body>
+<nav>
+  <a href="index.html" class="brand">♻️ EcoWarriors</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="game.html">Play</a>
+    <a href="leaderboard.html">Leaderboard</a>
+  </div>
+  <a href="login.html" class="btn btn-yellow" id="navLoginBtn">Login</a>
+</nav>
+
+<div class="lb-header">
+  <h1>🏆 Leaderboard</h1>
+  <p>Top EcoWarrior waste-sorting champions</p>
+  <div class="top3-row" id="podium"></div>
+</div>
+
+<div class="filters-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="filter-btn active" onclick="filterLevel('all',this)">All Levels</button>
+  <button class="filter-btn" onclick="filterLevel(1,this)">🌱 Level 1</button>
+  <button class="filter-btn" onclick="filterLevel(2,this)">🌿 Level 2</button>
+  <button class="filter-btn" onclick="filterLevel(3,this)">🌳 Level 3</button>
+  <input class="search-box" type="text" id="searchBox" placeholder="🔍 Search player..." oninput="renderTable()">
+</div>
+
+<div class="lb-container">
+  <div class="lb-table">
+    <div class="lb-thead">
+      <span style="text-align:center">Rank</span>
+      <span>Player</span>
+      <span style="text-align:center">Score</span>
+      <span style="text-align:center">Sorted</span>
+      <span style="text-align:center">Level</span>
+      <span style="text-align:center">Time</span>
+    </div>
+    <div id="leaderboardBody">
+      <div class="loading-state"><span class="spin">⏳</span>Loading leaderboard...</div>
+    </div>
+  </div>
+  <div class="your-rank" id="yourRankSection">
+    <h3>📍 Your Best Score</h3>
+    <div class="your-rank-row" id="yourRankRow"></div>
+    <div style="text-align:center;margin-top:20px">
+      <a href="game.html" class="btn btn-green" style="font-size:1rem;padding:12px 32px">🎮 Play Again to Move Up!</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">♻️ EcoWarriors</div>
+  <p>&copy; 2024 EcoWarriors: Trash Toss Titans. All rights reserved.</p>
+</footer>
+
+<script src="js/leaderboard.js"></script>
+</body>
+</html>

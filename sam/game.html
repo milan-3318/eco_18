@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game - EcoWarriors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="brand">♻️ EcoWarriors</a>
+  <div class="nav-right">
+    <div class="streak-pill" id="streakPill">🔥 <span id="streakCount">0</span>x Streak!</div>
+    <div class="score-pill">⭐ <span id="scoreDisplay">0</span></div>
+    <div class="timer-pill" id="timerDisplay">01:30</div>
+    <a href="index.html" class="btn btn-outline">Exit</a>
+  </div>
+</nav>
+
+<!-- LEVEL BANNER -->
+<div class="level-banner">
+  <div class="level-info">
+    <h2 id="levelTitle">Level 1 — Basic Sort</h2>
+    <p id="levelDesc">Drag waste items into the correct bins before time runs out</p>
+  </div>
+  <div class="progress-wrap">
+    <span class="progress-label">Progress: <span id="sortedCount">0</span>/<span id="totalCount">10</span></span>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+</div>
+
+<!-- GAME AREA -->
+<div class="game-area">
+  <!-- BINS -->
+  <div class="bins-row" id="binsRow">
+    <div class="bin wet" data-bin="wet">
+      <span class="bin-emoji">💧</span>
+      <div class="bin-label">Wet Waste</div>
+      <div class="bin-count" id="wet-count">0 sorted</div>
+      <div class="bin-drop-zone">Drop here</div>
+    </div>
+    <div class="bin dry" data-bin="dry">
+      <span class="bin-emoji">📦</span>
+      <div class="bin-label">Dry Waste</div>
+      <div class="bin-count" id="dry-count">0 sorted</div>
+      <div class="bin-drop-zone">Drop here</div>
+    </div>
+    <div class="bin hazardous" data-bin="hazardous">
+      <span class="bin-emoji">⚠️</span>
+      <div class="bin-label">Hazardous</div>
+      <div class="bin-count" id="hazardous-count">0 sorted</div>
+      <div class="bin-drop-zone">Drop here</div>
+    </div>
+    <div class="bin recyclable" data-bin="recyclable">
+      <span class="bin-emoji">♻️</span>
+      <div class="bin-label">Recyclable</div>
+      <div class="bin-count" id="recyclable-count">0 sorted</div>
+      <div class="bin-drop-zone">Drop here</div>
+    </div>
+  </div>
+
+  <!-- ITEMS -->
+  <div class="items-section">
+    <div class="items-header">
+      <h3>🗑️ Items to Sort</h3>
+      <span id="itemsHint" style="color:var(--gray);font-size:0.85rem;">Drag each item to the correct bin</span>
+    </div>
+    <div class="items-grid" id="itemsGrid"></div>
+  </div>
+</div>
+
+<!-- FEEDBACK TOAST -->
+<div class="feedback-toast" id="feedbackToast">
+  <span class="fb-icon" id="fbIcon">✅</span>
+  <div class="fb-text">
+    <strong id="fbTitle">Correct!</strong>
+    <span id="fbSub">+10 points</span>
+  </div>
+</div>
+
+<!-- DRAG GHOST -->
+<div id="drag-ghost"></div>
+
+<!-- GAME OVER MODAL -->
+<div class="modal-overlay" id="gameOverModal">
+  <div class="modal">
+    <span class="trophy" id="trophyEmoji">🏆</span>
+    <h2>Game Over!</h2>
+    <div class="final-score"><span id="finalScore">0</span> pts</div>
+    <div class="score-details">
+      <div class="score-detail-item"><div class="val" id="detailSorted">0</div><div class="key">Sorted</div></div>
+      <div class="score-detail-item"><div class="val" id="detailAccuracy">0%</div><div class="key">Accuracy</div></div>
+      <div class="score-detail-item"><div class="val" id="detailBestStreak">0</div><div class="key">Best Streak</div></div>
+    </div>
+    <p id="resultMessage" style="color:var(--gray);font-size:0.95rem;margin-bottom:4px"></p>
+    <div class="modal-btns">
+      <button class="btn btn-green" id="playAgainBtn">🔄 Play Again</button>
+      <button class="btn btn-yellow" id="leaderboardBtn" style="color:var(--green-deep)">🏆 Leaderboard</button>
+      <a href="index.html" class="btn btn-outline" style="color:var(--green-deep);background:var(--bg)">🏠 Home</a>
+    </div>
+  </div>
+</div>
+
+<!-- LEVEL SELECT -->
+<div class="level-select-overlay" id="levelSelectOverlay">
+  <div class="level-select-box">
+    <h2>Choose Your Level</h2>
+    <p>Pick a challenge that suits your skills</p>
+    <div class="level-btns">
+      <div class="lvl-btn" onclick="selectLevel(1)">
+        <div class="lv-icon">🌱</div>
+        <span class="lv-name">Level 1</span>
+        <div class="lv-desc">Basic Sort<br>90s · 10 items</div>
+      </div>
+      <div class="lvl-btn" onclick="selectLevel(2)">
+        <div class="lv-icon">🌿</div>
+        <span class="lv-name">Level 2</span>
+        <div class="lv-desc">Speed Sort<br>60s · 15 items</div>
+      </div>
+      <div class="lvl-btn" onclick="selectLevel(3)">
+        <div class="lv-icon">🌳</div>
+        <span class="lv-name">Level 3</span>
+        <div class="lv-desc">Master Class<br>45s · 20 items</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/game.js"></script>
+</body>
+</html>

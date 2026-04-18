@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoWarriors: Trash Toss Titans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<nav>
+  <div class="brand">♻️ EcoWarriors</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="game.html">Play</a>
+    <a href="leaderboard.html">Leaderboard</a>
+  </div>
+  <div class="nav-actions">
+    <span id="nav-user-display">👋 <span id="nav-username"></span></span>
+    <a href="login.html" class="btn btn-yellow" id="nav-login-btn">Login</a>
+    <button class="btn btn-logout" id="nav-logout-btn" style="display:none" onclick="logout()">Logout</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="floating-emojis" id="floatingEmojis"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Be an <span>Eco</span><br>Warrior! 🌍</h1>
+      <p>Sort waste, save the planet, and climb the leaderboard. The most fun way to learn recycling — ever!</p>
+      <div class="hero-btns">
+        <a href="game.html" class="btn btn-yellow" style="font-size:1.1rem;padding:14px 32px">🎮 Play Now</a>
+        <a href="#how-to-play" class="btn btn-outline">How to Play</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-pill"><div class="num">3</div><div class="lbl">Game Levels</div></div>
+        <div class="stat-pill"><div class="num">30+</div><div class="lbl">Waste Items</div></div>
+        <div class="stat-pill"><div class="num">4</div><div class="lbl">Bin Types</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="bin-card"><div class="emoji">💧</div><div class="bin-name">Wet Waste</div><div class="bin-sub">Food scraps, peels</div></div>
+      <div class="bin-card"><div class="emoji">📦</div><div class="bin-name">Dry Waste</div><div class="bin-sub">Paper, cardboard</div></div>
+      <div class="bin-card"><div class="emoji">⚠️</div><div class="bin-name">Hazardous</div><div class="bin-sub">Batteries, medicines</div></div>
+      <div class="bin-card"><div class="emoji">♻️</div><div class="bin-name">Recyclable</div><div class="bin-sub">Plastic, glass, metal</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="how-to-play" id="how-to-play">
+  <h2 class="section-title">How to Play</h2>
+  <p class="section-sub">Simple to learn, surprisingly addictive</p>
+  <div class="steps-grid">
+    <div class="step-card"><div class="step-num">1</div><h3>Create Account</h3><p>Register to save scores and compete on the global leaderboard.</p></div>
+    <div class="step-card"><div class="step-num">2</div><h3>Pick a Level</h3><p>Start with Level 1 and unlock harder levels as you improve.</p></div>
+    <div class="step-card"><div class="step-num">3</div><h3>Drag &amp; Drop</h3><p>Drag waste items into the correct bin before time runs out!</p></div>
+    <div class="step-card"><div class="step-num">4</div><h3>Climb Ranks</h3><p>Earn streak bonuses and compete to become the #1 EcoWarrior.</p></div>
+  </div>
+</section>
+
+<section class="levels-section">
+  <h2 class="section-title">Game Levels</h2>
+  <p class="section-sub">Three stages of eco-challenge await</p>
+  <div class="levels-grid">
+    <div class="level-card lv1">
+      <span class="level-badge">🌱 Beginner</span>
+      <h3>Level 1 — Basic Sort</h3>
+      <p>Learn the 4 waste categories with everyday household items. Perfect for beginners!</p>
+      <div class="level-meta"><span>⏱ 90 sec</span><span>🎯 10 items</span><span>⭐ 10 pts each</span></div>
+      <a href="game.html?level=1" class="btn btn-green" style="width:100%;text-align:center">Play Level 1</a>
+    </div>
+    <div class="level-card lv2">
+      <span class="level-badge">🌿 Intermediate</span>
+      <h3>Level 2 — Speed Sort</h3>
+      <p>More items, less time! Tricky waste types that look similar but belong in different bins.</p>
+      <div class="level-meta"><span>⏱ 60 sec</span><span>🎯 15 items</span><span>⭐ 15 pts each</span></div>
+      <a href="game.html?level=2" class="btn btn-yellow" style="width:100%;text-align:center;color:var(--green-deep)">Play Level 2</a>
+    </div>
+    <div class="level-card lv3">
+      <span class="level-badge">🌳 Expert</span>
+      <h3>Level 3 — Master Class</h3>
+      <p>E-waste, medical waste, and complex recyclables. Only the best EcoWarriors survive!</p>
+      <div class="level-meta"><span>⏱ 45 sec</span><span>🎯 20 items</span><span>⭐ 20 pts each</span></div>
+      <a href="game.html?level=3" class="btn" style="width:100%;text-align:center;background:#f97316;color:#fff">Play Level 3</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Ready to Save the Planet? 🌍</h2>
+  <p>Join the EcoWarriors community and prove you're the ultimate Trash Toss Titan!</p>
+  <a href="game.html" class="btn btn-green" style="font-size:1.1rem;padding:16px 40px">Start Playing Now</a>
+</section>
+
+<footer>
+  <div class="footer-brand">♻️ EcoWarriors</div>
+  <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Contact Us</a></div>
+  <p>&copy; 2024 EcoWarriors: Trash Toss Titans. All rights reserved.</p>
+</footer>
+<div id="toast"></div>
+
+<script src="js/index.js"></script>
+</body>
+</html>
