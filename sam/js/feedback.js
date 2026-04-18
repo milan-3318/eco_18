@@ -7,10 +7,6 @@ const username = localStorage.getItem('username');
 // Pre-fill name if logged in
 if (username) {
   document.getElementById('fbName').value = username;
-  document.getElementById('nav-username').textContent = username;
-  document.getElementById('nav-user-display').style.display = 'inline';
-  document.getElementById('nav-login-btn').style.display = 'none';
-  document.getElementById('nav-logout-btn').style.display = 'inline';
 }
 
 // Load recent feedback
@@ -95,12 +91,6 @@ function showToast(msg, type = 'ok') {
   t.textContent = msg;
   t.className = 'toast show ' + (type === 'ok' ? 'toast-ok' : 'toast-err');
   setTimeout(() => t.classList.remove('show'), 3500);
-}
-
-function logout() {
-  localStorage.removeItem('token');
-  localStorage.removeItem('username');
-  window.location.reload();
 }
 
 // Initial load
