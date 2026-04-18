@@ -1,0 +1,9 @@
+{
+  "name": "ecowarriors-fullstack",
+  "version": "1.0.0",
+  "description": "EcoWarriors: Trash Toss Titans — Fullstack MERN Application",
+  "scripts": {
+    "start": "cd server && node server.js",
+    "install-server": "cd server && npm install"
+  }
+}

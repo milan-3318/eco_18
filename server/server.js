@@ -8,10 +8,16 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');
 const gameRoutes = require('./routes/game');
 
+const path = require('path');
+
 // ── Connect to MongoDB ────────────────────────────────────────
 connectDB();
 
 const app = express();
+
+// ── Serve Static Frontend ─────────────────────────────────────
+// This allows the backend to serve your HTML/CSS/JS files
+app.use(express.static(path.join(__dirname, '../sam')));
 
 // ── CORS ──────────────────────────────────────────────────────
 // Allow all origins so local file:// HTML can reach the API

@@ -64,7 +64,7 @@ async function handleLogin() {
   if (!ok) return;
   setLoad('loginBtn', true);
   try {
-    const res = await fetch('http://localhost:5000/api/auth/login', {
+    const res = await fetch('/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password: pw })
@@ -101,7 +101,7 @@ async function handleRegister() {
   if (!ok) return;
   setLoad('registerBtn', true);
   try {
-    const res = await fetch('http://localhost:5000/api/auth/register', {
+    const res = await fetch('/api/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: user, email, password: pw, avatar: av })
