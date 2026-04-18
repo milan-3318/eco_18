@@ -80,6 +80,13 @@ let usedItems = [], activeItems = [];
 
 // ─── INIT ────────────────────────────────────────────────────
 function init() {
+  // Check if user is logged in
+  if (!localStorage.getItem('token')) {
+    alert('Please log in or register to play and save your scores! 🌍');
+    window.location.href = 'login.html';
+    return;
+  }
+
   const params = new URLSearchParams(window.location.search);
   const lvl = parseInt(params.get('level'));
   if (lvl >= 1 && lvl <= 3) {

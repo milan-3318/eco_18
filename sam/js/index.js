@@ -12,6 +12,18 @@ emojis.forEach((e, i) => {
   fc.appendChild(el);
 });
 
+// Protection for Play Now buttons
+document.addEventListener('click', (e) => {
+  const target = e.target.closest('a');
+  if (target && target.getAttribute('href')?.startsWith('game.html')) {
+    if (!localStorage.getItem('token')) {
+      e.preventDefault();
+      alert('Please log in or register first to save your eco-progress! 🌍');
+      window.location.href = 'login.html';
+    }
+  }
+});
+
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
