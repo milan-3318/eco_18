@@ -6,7 +6,7 @@ if (username) document.getElementById('navLoginBtn').textContent = '👤 ' + use
 
 async function loadLeaderboard() {
   try {
-    const res = await fetch('/api/game/leaderboard');
+    const res = await fetch(`${window.API_URL}/api/game/leaderboard`);
     const data = await res.json();
     if (!Array.isArray(data)) throw new Error('Bad data');
     allData = data.sort((a, b) => b.score - a.score);

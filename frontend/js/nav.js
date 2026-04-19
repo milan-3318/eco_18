@@ -1,4 +1,5 @@
 // EcoWarriors — Shared Navigation JS
+window.API_URL = 'https://ecowarrior-18.onrender.com';
 
 document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');

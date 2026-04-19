@@ -300,7 +300,7 @@ function saveScore() {
   const username = localStorage.getItem('username');
   const token    = localStorage.getItem('token');
   if (!username) return;
-  fetch('/api/game/save', {
+  fetch(`${window.API_URL}/api/game/save`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
     body: JSON.stringify({ username, score, level: currentLevel, itemsSorted: sorted, time: LEVELS[currentLevel].time - timeLeft })

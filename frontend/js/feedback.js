@@ -12,7 +12,7 @@ if (username) {
 // Load recent feedback
 async function loadFeedback() {
   try {
-    const res = await fetch('/api/feedback');
+    const res = await fetch(`${window.API_URL}/api/feedback`);
     const data = await res.json();
     
     if (data.success && data.feedback.length > 0) {
@@ -60,7 +60,7 @@ feedbackForm.addEventListener('submit', async (e) => {
   submitBtn.textContent = 'Sending...';
 
   try {
-    const res = await fetch('/api/feedback', {
+    const res = await fetch(`${window.API_URL}/api/feedback`, {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
