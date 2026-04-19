@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "EcoWarriors: Trash Toss Titans — Fullstack MERN Application",
   "scripts": {
-    "start": "cd server && node server.js",
-    "install-server": "cd server && npm install"
+    "start": "node backend/server.js",
+    "install-backend": "cd backend && npm install",
+    "build": "echo 'No build step required for static frontend'"
   }
 }

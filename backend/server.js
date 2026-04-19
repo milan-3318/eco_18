@@ -18,7 +18,7 @@ const app = express();
 
 // ── Serve Static Frontend ─────────────────────────────────────
 // This allows the backend to serve your HTML/CSS/JS files
-app.use(express.static(path.join(__dirname, '../sam')));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // ── CORS ──────────────────────────────────────────────────────
 // Allow all origins so local file:// HTML can reach the API
