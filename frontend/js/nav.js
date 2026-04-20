@@ -27,13 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show Admin Link if role is admin
     const role = localStorage.getItem('role');
-    if (role === 'admin' && navLinks) {
+    if (role === 'admin') {
       const adminLink = document.createElement('a');
       adminLink.href = 'admin.html';
       adminLink.textContent = '👑 Admin';
+      adminLink.className = 'btn btn-outline'; // Use button style for visibility
+      adminLink.style.borderColor = '#4f46e5';
       adminLink.style.color = '#4f46e5';
-      adminLink.style.fontWeight = '800';
-      navLinks.appendChild(adminLink);
+      adminLink.style.marginLeft = '10px';
+
+      // Try to find the best place to put it
+      const target = document.querySelector('.nav-links') || document.querySelector('.nav-right') || document.querySelector('nav');
+      if (target) target.appendChild(adminLink);
     }
   }
 });

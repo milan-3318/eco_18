@@ -74,7 +74,8 @@ async function handleLogin() {
       localStorage.setItem('token', data.token);
       localStorage.setItem('username', data.username || email.split('@')[0]);
       localStorage.setItem('role', data.role || 'user');
-      showToast('🎉 Welcome back! Loading...');
+      console.log('Login successful. Role:', data.role); 
+      showToast(`Welcome back! Role: ${data.role || 'user'}`);
       const targetPage = (data.role === 'admin') ? 'admin.html' : 'game.html';
       setTimeout(() => window.location.href = targetPage, 1200);
     } else {
