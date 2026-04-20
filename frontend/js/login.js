@@ -74,8 +74,9 @@ async function handleLogin() {
       localStorage.setItem('token', data.token);
       localStorage.setItem('username', data.username || email.split('@')[0]);
       localStorage.setItem('role', data.role || 'user');
-      showToast('🎉 Welcome back! Loading game...');
-      setTimeout(() => window.location.href = 'game.html', 1200);
+      showToast('🎉 Welcome back! Loading...');
+      const targetPage = (data.role === 'admin') ? 'admin.html' : 'game.html';
+      setTimeout(() => window.location.href = targetPage, 1200);
     } else {
       showToast(data.message || 'Login failed. Check your credentials.', 'err');
     }
@@ -114,7 +115,8 @@ async function handleRegister() {
       if (data.token) localStorage.setItem('token', data.token);
       if (data.role) localStorage.setItem('role', data.role);
       showToast('🌱 Account created! Welcome, ' + user + '!');
-      setTimeout(() => window.location.href = 'game.html', 1400);
+      const targetPage = (data.role === 'admin') ? 'admin.html' : 'game.html';
+      setTimeout(() => window.location.href = targetPage, 1400);
     } else {
       showToast(data.message || 'Registration failed. Try again.', 'err');
     }
