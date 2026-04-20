@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - EcoWarriors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<nav>
+  <a href="index.html" class="brand">♻️ EcoWarriors</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="game.html">Play</a>
+    <a href="leaderboard.html">Leaderboard</a>
+  </div>
+  <div class="nav-actions">
+    <span id="nav-user-display">👋 Admin <span id="nav-username"></span></span>
+    <button class="btn btn-logout" onclick="logout()">Logout</button>
+  </div>
+</nav>
+
+<div class="admin-container">
+  <header class="admin-header">
+    <h1>👑 Admin Dashboard</h1>
+    <p>Complete control over EcoWarriors users, scores, and feedback.</p>
+  </header>
+
+  <!-- Stats Grid -->
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-card">
+      <div class="stat-icon">👥</div>
+      <div class="stat-info">
+        <h3 id="statUsers">...</h3>
+        <p>Total Users</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🎮</div>
+      <div class="stat-info">
+        <h3 id="statScores">...</h3>
+        <p>Games Played</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">💬</div>
+      <div class="stat-info">
+        <h3 id="statFeedback">...</h3>
+        <p>Feedback</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="admin-tabs">
+    <button class="tab-btn active" onclick="switchTab('users')">Users List</button>
+    <button class="tab-btn" onclick="switchTab('feedback')">Feedback</button>
+  </div>
+
+  <!-- Content Sections -->
+  <div id="usersSection" class="admin-section active">
+    <div class="section-header">
+      <h2>All Registered Players</h2>
+      <input type="text" id="userSearch" placeholder="🔍 Search players..." oninput="filterUsers()">
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Email</th>
+            <th>School</th>
+            <th>Best Score</th>
+            <th>Games</th>
+            <th>Joined</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="usersTableBody">
+          <tr><td colspan="7" class="loading">Loading players...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="feedbackSection" class="admin-section">
+    <h2>Community Feedback</h2>
+    <div class="feedback-grid" id="feedbackGrid">
+      <p class="loading">Loading feedback...</p>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="js/nav.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

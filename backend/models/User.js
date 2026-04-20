@@ -39,6 +39,11 @@ const userSchema = new mongoose.Schema(
     totalScore: { type: Number, default: 0 },
     bestScore:  { type: Number, default: 0 },
     isActive:   { type: Boolean, default: true },
+    role: {
+      type: String,
+      enum: ['user', 'admin'],
+      default: 'user',
+    },
   },
   {
     timestamps: true, // adds createdAt, updatedAt
@@ -69,6 +74,7 @@ userSchema.methods.toPublicJSON = function () {
     totalGames: this.totalGames,
     totalScore: this.totalScore,
     bestScore:  this.bestScore,
+    role:       this.role,
     createdAt:  this.createdAt,
   };
 };

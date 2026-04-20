@@ -24,11 +24,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (userDisplay) userDisplay.style.display = 'inline-flex';
     if (loginBtn) loginBtn.style.display = 'none';
     if (logoutBtn) logoutBtn.style.display = 'inline-block';
+
+    // Show Admin Link if role is admin
+    const role = localStorage.getItem('role');
+    if (role === 'admin' && navLinks) {
+      const adminLink = document.createElement('a');
+      adminLink.href = 'admin.html';
+      adminLink.textContent = '👑 Admin';
+      adminLink.style.color = '#4f46e5';
+      adminLink.style.fontWeight = '800';
+      navLinks.appendChild(adminLink);
+    }
   }
 });
 
 function logout() {
   localStorage.removeItem('token');
   localStorage.removeItem('username');
-  window.location.reload();
+  localStorage.removeItem('role');
+  window.location.href = 'index.html';
 }

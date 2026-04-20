@@ -25,7 +25,7 @@ exports.register = async (req, res) => {
       });
     }
 
-    const { name, email, password, avatar, school } = req.body;
+    const { name, email, password, avatar, school, adminCode } = req.body;
 
     // Check for existing user
     const existingUser = await User.findOne({
@@ -40,6 +40,12 @@ exports.register = async (req, res) => {
       });
     }
 
+    // Determine role (check secret code)
+    let role = 'user';
+    if (adminCode && adminCode === process.env.ADMIN_SECRET_CODE) {
+      role = 'admin';
+    }
+
     // Create user (password hashed by pre-save hook)
     const user = await User.create({
       username: name,
@@ -47,6 +53,7 @@ exports.register = async (req, res) => {
       password,
       avatar: avatar || '🌿',
       school: school || 'EcoWarriors Player',
+      role,
     });
 
     const token = signToken(user._id);
@@ -59,6 +66,7 @@ exports.register = async (req, res) => {
       token,
       username: user.username,
       avatar: user.avatar,
+      role: user.role,
     });
   } catch (err) {
     console.error('Register error:', err);
@@ -132,6 +140,7 @@ exports.login = async (req, res) => {
       username: user.username,
       avatar: user.avatar,
       school: user.school,
+      role: user.role,
     });
   } catch (err) {
     console.error('Login error:', err);

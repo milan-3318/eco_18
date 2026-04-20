@@ -73,6 +73,7 @@ async function handleLogin() {
     if (data.token) {
       localStorage.setItem('token', data.token);
       localStorage.setItem('username', data.username || email.split('@')[0]);
+      localStorage.setItem('role', data.role || 'user');
       showToast('🎉 Welcome back! Loading game...');
       setTimeout(() => window.location.href = 'game.html', 1200);
     } else {
@@ -92,6 +93,7 @@ async function handleRegister() {
   const conf  = document.getElementById('regConfirm').value.trim();
   const terms = document.getElementById('terms').checked;
   const av    = document.querySelector('.av-opt.selected')?.dataset.av || '🌿';
+  const aCode = document.getElementById('adminCode').value.trim();
   let ok = true;
   if (!user)                  ok = showErr('eRegUser', 'Username is required');
   if (!email || !email.includes('@')) ok = showErr('eRegEmail', 'Please enter a valid email');
@@ -104,12 +106,13 @@ async function handleRegister() {
     const res = await fetch(`${window.API_URL}/api/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: user, email, password: pw, avatar: av })
+      body: JSON.stringify({ name: user, email, password: pw, avatar: av, adminCode: aCode })
     });
     const data = await res.json();
     if (data.success || data.token) {
       localStorage.setItem('username', user);
       if (data.token) localStorage.setItem('token', data.token);
+      if (data.role) localStorage.setItem('role', data.role);
       showToast('🌱 Account created! Welcome, ' + user + '!');
       setTimeout(() => window.location.href = 'game.html', 1400);
     } else {
